@@ -5,6 +5,7 @@ import NavbarContent from './NavbarContent'
 const Navbar = () => {
   return (
     <LayoutNavbar>
+      <></>
       <NavbarContent />
     </LayoutNavbar>
   )

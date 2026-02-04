@@ -19,6 +19,8 @@ import FormControl from '@mui/material/FormControl';
 import AddIcon from '@mui/icons-material/Add';
 import ReusableTable from '@/app/(dashboard)/_components/ReusableTable';
 import Link from 'next/link';
+import { LocalizationProvider, DateRangePicker } from '@mui/x-date-pickers-pro';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 
 export default function InvoicePage() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -61,7 +63,7 @@ export default function InvoicePage() {
       <div className="w-full">
         <h1 className="text-2xl font-bold mb-4">Invoice Page</h1>
         <div className="mb-4 flex justify-between items-center">
-          <div className="flex gap-4">
+          <div className="flex gap-4 ">
             <TextField
               fullWidth
               variant="outlined"
@@ -70,22 +72,23 @@ export default function InvoicePage() {
               onChange={(e) => setSearchTerm(e.target.value)}
               className="mb-4"
             />
-            <TextField
-              fullWidth
-              variant="outlined"
-              type="date"
-              value={startDate ? startDate.toISOString().split('T')[0] : ''}
-              onChange={(e) => setStartDate(e.target.value ? new Date(e.target.value) : null)}
-              className="mb-4"
-            />
-            <TextField
-              fullWidth
-              variant="outlined"
-              type="date"
-              value={endDate ? endDate.toISOString().split('T')[0] : ''}
-              onChange={(e) => setEndDate(e.target.value ? new Date(e.target.value) : null)}
-              className="mb-4"
-            />
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <DateRangePicker
+                startText="Start Date"
+                endText="End Date"
+                value={[startDate, endDate]}
+                onChange={(newValue) => {
+                  setStartDate(newValue[0]);
+                  setEndDate(newValue[1]);
+                }}
+                renderInput={(startProps, endProps) => (
+                  <>
+                    <TextField {...startProps} fullWidth className="mb-4" />
+                    <TextField {...endProps} fullWidth className="mb-4" />
+                  </>
+                )}
+              />
+            </LocalizationProvider>
           </div>
           <div className="flex gap-4">
             <Link href="/invoice/0" passHref>

@@ -61,74 +61,28 @@ const VerticalMenu = ({ scrollMenu }: { scrollMenu: (container: any, isPerfectSc
         renderExpandedMenuItemIcon={{ icon: <i className='ri-circle-line' /> }}
         menuSectionStyles={menuSectionStyles(theme)}
       >
-        <SubMenu
-          label='Dashboards'
-          icon={<i className='ri-home-smile-line' />}
-          suffix={<Chip label='5' size='small' color='error' />}
-        >
-          <MenuItem
-            href={`${process.env.NEXT_PUBLIC_PRO_URL}/dashboards/crm`}
-            suffix={<Chip label='Pro' size='small' color='primary' variant='tonal' />}
-            target='_blank'
-          >
-            CRM
-          </MenuItem>
-          <MenuItem href='/'>Analytics</MenuItem>
-          <MenuItem
-            href={`${process.env.NEXT_PUBLIC_PRO_URL}/dashboards/ecommerce`}
-            suffix={<Chip label='Pro' size='small' color='primary' variant='tonal' />}
-            target='_blank'
-          >
-            eCommerce
-          </MenuItem>
-          <MenuItem
-            href={`${process.env.NEXT_PUBLIC_PRO_URL}/dashboards/academy`}
-            suffix={<Chip label='Pro' size='small' color='primary' variant='tonal' />}
-            target='_blank'
-          >
-            Academy
-          </MenuItem>
-          <MenuItem
-            href={`${process.env.NEXT_PUBLIC_PRO_URL}/dashboards/logistics`}
-            suffix={<Chip label='Pro' size='small' color='primary' variant='tonal' />}
-            target='_blank'
-          >
-            Logistics
-          </MenuItem>
-        </SubMenu>
-        <SubMenu
-          label='Front Pages'
-          icon={<i className='ri-file-copy-line' />}
-          suffix={<Chip label='Pro' size='small' color='primary' variant='tonal' />}
-        >
-          <MenuItem href={`${process.env.NEXT_PUBLIC_PRO_URL}/front-pages/landing-page`} target='_blank'>
-            Landing
-          </MenuItem>
-          <MenuItem href={`${process.env.NEXT_PUBLIC_PRO_URL}/front-pages/pricing`} target='_blank'>
-            Pricing
-          </MenuItem>
-          <MenuItem href={`${process.env.NEXT_PUBLIC_PRO_URL}/front-pages/payment`} target='_blank'>
-            Payment
-          </MenuItem>
-          <MenuItem href={`${process.env.NEXT_PUBLIC_PRO_URL}/front-pages/checkout`} target='_blank'>
-            Checkout
-          </MenuItem>
-          <MenuItem href={`${process.env.NEXT_PUBLIC_PRO_URL}/front-pages/help-center`} target='_blank'>
-            Help Center
-          </MenuItem>
-        </SubMenu>
         <MenuSection label='Apps & Pages'>
           <MenuItem
-            href={`${process.env.NEXT_PUBLIC_PRO_URL}/apps/email`}
-            icon={<i className='ri-mail-open-line' />}
-            suffix={<Chip label='Pro' size='small' color='primary' variant='tonal' />}
-            target='_blank'
+            href={`/branches`}
+            icon={<i className='ri-building-line' />} // Updated icon for Branches
           >
-            Email
+          Branches
           </MenuItem>
-              <MenuItem
+            <MenuItem
+            href={`/users`}
+            icon={<i className='ri-user-line' />} // Updated icon for Users
+          >
+            Users
+          </MenuItem>
+            <MenuItem
+            href={`/staff`}
+            icon={<i className='ri-team-line' />} // Updated icon for Staff
+          >
+            Staff
+          </MenuItem>
+            <MenuItem
             href={`/invoice`}
-            icon={<i className='ri-mail-open-line' />}
+            icon={<i className='ri-file-list-line' />} // Updated icon for Invoice
           >
             Invoice
           </MenuItem>

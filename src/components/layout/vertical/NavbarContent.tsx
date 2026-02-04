@@ -20,11 +20,11 @@ const NavbarContent = () => {
   return (
     <div className={classnames(verticalLayoutClasses.navbarContent, 'flex items-center justify-between gap-4 is-full')}>
       <div className='flex items-center gap-2 sm:gap-4'>
-        <NavToggle />
-        <NavSearch />
+        {/* <NavToggle /> */}
+        {/* <NavSearch /> */}
       </div>
       <div className='flex items-center'>
-        <Link
+        {/* <Link
           className='flex mie-2'
           href={`https://github.com/themeselection/${process.env.NEXT_PUBLIC_REPO_NAME}`}
           target='_blank'
@@ -38,7 +38,7 @@ const NavbarContent = () => {
         <ModeDropdown />
         <IconButton className='text-textPrimary'>
           <i className='ri-notification-2-line' />
-        </IconButton>
+        </IconButton> */}
         <UserDropdown />
       </div>
     </div>

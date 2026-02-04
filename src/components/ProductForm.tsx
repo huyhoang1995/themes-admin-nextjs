@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { TextField, Button, Select, MenuItem, IconButton, Typography, Box, Grid } from '@mui/material';
+import { TextField, Button, Select, MenuItem, IconButton, Typography, Box, Grid, InputAdornment, Autocomplete } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import CloseIcon from '@mui/icons-material/Close';
 import EditIcon from '@mui/icons-material/Edit';
@@ -27,7 +27,37 @@ const ProductForm = () => {
   };
 
   return (
-    <Box>
+    <>
+        
+        <Box>
+        <Typography variant="h6" gutterBottom>
+            Product Information
+        </Typography>
+        <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+            <Autocomplete
+              fullWidth
+              options={['HN', 'HCM', 'DN']}
+              renderInput={(params) => <TextField {...params} label="Chi nhánh" variant="outlined" />}
+            />
+            </Grid>
+            <Grid item xs={12} sm={3}>
+            <Autocomplete
+              fullWidth
+              options={['Hoàng', 'Kiên', 'Hữu']}
+              renderInput={(params) => <TextField {...params} label="Tên khách hàng" variant="outlined" />}
+            />
+            </Grid>
+            <Grid item xs={12} sm={3}>
+                <TextField fullWidth label="Số điện thoại" variant="outlined" />
+            </Grid>
+            <Grid item xs={12}>
+                <TextField fullWidth label="Ghi chú" variant="outlined" />
+
+            </Grid>
+        </Grid>
+        </Box>
+       <Box>
       <Typography variant="h6" gutterBottom sx={{ mt: 4 }}>
         Thông tin dịch vụ
       </Typography>
@@ -87,7 +117,10 @@ const ProductForm = () => {
           Cập nhật
         </Button>
       </Box>
+
+   
     </Box>
+    </>
   );
 };
 
